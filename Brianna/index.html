@@ -121,6 +121,8 @@
                 </div>
             </section>
             <hr class="m-0" />
+ <div id="hits">0</div>
+
 
             <script>
   document.querySelectorAll("td").forEach(cell => {
@@ -322,5 +324,19 @@ let randomNum = getRandomBetween5And30();
 
 
   </script>
+            <script>
+    let hits = localStorage.getItem('pageHits');
+
+    if (!hits) {
+      hits = 1;
+    } else {
+      hits = parseInt(hits) + 1;
+    }
+
+    localStorage.setItem('pageHits', hits);
+    document.getElementById('hits').textContent = hits;
+  </script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </html>
